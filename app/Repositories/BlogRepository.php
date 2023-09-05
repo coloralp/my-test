@@ -10,11 +10,6 @@ class BlogRepository extends BaseRepository implements BlogRepositoryInterface
 {
 
 
-    public function __construct()
-    {
-        parent::__construct(new Blog());
-    }
-
     public function create(BlogDto $blogDto)
     {
         return $this->model->create([

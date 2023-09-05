@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 Route::post('post/create', [BlogController::class, 'store']);
+Route::get('post/{id}', [BlogController::class, 'show']);

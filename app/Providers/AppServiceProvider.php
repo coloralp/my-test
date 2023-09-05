@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Interfaces\BlogRepositoryInterface;
+use App\Models\Blog;
 use App\Repositories\BlogRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(BlogRepositoryInterface::class,BlogRepository::class);
+        $this->app->bind(BlogRepositoryInterface::class,function (){
+            return new BlogRepository(new Blog());
+        });
+
+//        $this->app->bind(BlogRepositoryInterface::class,BlogRepository::class);
     }
 
     /**
